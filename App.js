@@ -1,15 +1,15 @@
-import React from "react";
-import { StyleSheet, Text, View, Platform } from "react-native";
-import { StackNavigator } from "react-navigation";
+import React from 'react';
+import { Provider } from 'react-redux';
 
-import HomeScreen from "./HomeScreen";
+import App from './src/App';
+import store from './src/redux/store';
 
-const SimpleApp = StackNavigator({
-  Home: { screen: HomeScreen },
-});
-
-export default class App extends React.Component {
-  render() {
-    return <SimpleApp />;
-  }
+const main = () => {
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
 }
+
+export default main;
