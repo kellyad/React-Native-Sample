@@ -4,11 +4,10 @@ import { TextInput, View, Text } from 'react-native';
 import styles from './MyTextInput.styles';
 import Proptypes from 'prop-types';
 //import { Icon } from 'native-base';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 /**
  * to be wrapped with redux-form Field component
  */
-export default function MyTextInput(props) {
+export default function passwordInput(props) {
   const { input, meta, ...inputProps } = props;
 
   // do not display warning if the field has not been touched or if it's currently being edited
@@ -21,6 +20,11 @@ export default function MyTextInput(props) {
       
       <TextInput
         {...inputProps}
+        underlineColorAndroid='transparent'
+        placeholder="password"
+        placeholderTextColor="rgba(255,255,255,0.7)"
+        returnKeyType='go'
+        secureTextEntry
         onChangeText={input.onChange}
         onBlur={input.onBlur}
         onFocus={input.onFocus}
@@ -31,7 +35,7 @@ export default function MyTextInput(props) {
   );
 }
 
-MyTextInput.propTypes = {
+passwordInput.propTypes = {
   input: Proptypes.shape({
     onBlur: Proptypes.func.isRequired,
     onChange: Proptypes.func.isRequired,
